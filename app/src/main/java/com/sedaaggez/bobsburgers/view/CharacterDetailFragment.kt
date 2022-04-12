@@ -3,10 +3,14 @@ package com.sedaaggez.bobsburgers.view
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.RequestManager
 import com.sedaaggez.bobsburgers.R
 import com.sedaaggez.bobsburgers.databinding.FragmentCharacterDetailBinding
+import javax.inject.Inject
 
-class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
+class CharacterDetailFragment @Inject constructor(
+    val glide: RequestManager
+) : Fragment(R.layout.fragment_character_detail) {
 
     private var fragmentBinding: FragmentCharacterDetailBinding? = null
 
