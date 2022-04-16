@@ -19,6 +19,9 @@ class CharacterAdapter @Inject constructor(
     class CharacterViewHolder(val binding: CharacterRowBinding) :
         RecyclerView.ViewHolder(binding.root)
 
+    private var onItemClickListener :((Character) -> Unit) ?= null
+
+
     private val diffUtil = object : DiffUtil.ItemCallback<Character>() {
         override fun areItemsTheSame(oldItem: Character, newItem: Character): Boolean {
             return oldItem == newItem
@@ -42,13 +45,25 @@ class CharacterAdapter @Inject constructor(
 
     }
 
+    fun setOnItemClickListener(listener: (Character) -> Unit) {
+        onItemClickListener = listener
+    }
+
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         val character = characters[position]
+
+
+
         with(holder) {
             binding.tvCharacterName.text = character.name
             binding.tvCharacterGender.text = character.gender
             binding.tvHairColor.text = character.hairColor
             glide.load(character.image).into(binding.ivCharacter)
+            binding.root.setOnClickListener{
+                onItemClickListener?.let {
+                    it(character)
+                }
+            }
         }
 
     }
