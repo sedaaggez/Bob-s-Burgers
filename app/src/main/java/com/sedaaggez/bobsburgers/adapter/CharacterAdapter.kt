@@ -1,6 +1,5 @@
 package com.sedaaggez.bobsburgers.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -12,7 +11,6 @@ import com.sedaaggez.bobsburgers.model.Character
 import javax.inject.Inject
 
 class CharacterAdapter @Inject constructor(
-    val context: Context,
     val glide: RequestManager
 ) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
@@ -40,7 +38,7 @@ class CharacterAdapter @Inject constructor(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val binding = CharacterRowBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding = CharacterRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CharacterViewHolder(binding)
 
     }

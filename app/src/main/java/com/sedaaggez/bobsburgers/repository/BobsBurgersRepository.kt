@@ -15,13 +15,13 @@ class BobsBurgersRepository @Inject constructor(
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)
-                } ?: Resource.error("Error", null)
+                } ?: Resource.error("Error")
             } else {
-                Resource.error("Error", null)
+                Resource.error("Error")
             }
 
         } catch (e: Exception) {
-            Resource.error("No data!", null)
+            Resource.error("No data!")
         }
     }
 }

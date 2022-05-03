@@ -5,6 +5,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.sedaaggez.bobsburgers.R
 import com.sedaaggez.bobsburgers.api.RetrofitAPI
+import com.sedaaggez.bobsburgers.repository.BobsBurgersRepository
+import com.sedaaggez.bobsburgers.repository.BobsBurgersRepositoryInterface
 import com.sedaaggez.bobsburgers.util.Util.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -23,11 +25,16 @@ object AppModule {
     @Provides
     fun injectRetrofitAPI() : RetrofitAPI {
         return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(RetrofitAPI::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun injectRepository(api: RetrofitAPI) =
+        BobsBurgersRepository(api) as BobsBurgersRepositoryInterface
 
     @Singleton
     @Provides
