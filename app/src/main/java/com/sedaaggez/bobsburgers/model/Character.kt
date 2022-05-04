@@ -11,7 +11,8 @@ data class Character(
     val image: String,
     val name: String,
     val occupation: String,
-    val relatives: List<String>,
+    val relatives: List<Relative>,
     val url: String,
-    val voicedBy: String
+    val voicedBy: String,
+    val wikiUrl: String
 ) : Serializable

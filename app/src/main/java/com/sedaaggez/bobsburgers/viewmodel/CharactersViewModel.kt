@@ -20,7 +20,7 @@ class CharactersViewModel @Inject constructor(
     val characterItemList: LiveData<Resource<List<Character>>> get() = _characterItems
 
     fun getCharacters() {
-        _characterItems.value = Resource.loading(null)
+        _characterItems.value = Resource.loading()
         viewModelScope.launch {
             val response = repository.getCharacters()
             _characterItems.value = response

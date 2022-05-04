@@ -12,8 +12,7 @@
         android:id="@+id/ivCharacter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        tools:src="@tools:sample/avatars"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +25,6 @@
             android:id="@+id/tvCharacterName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dottie Minerva"
             android:textColor="@color/black"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="4dp"
@@ -36,7 +34,6 @@
             android:id="@+id/tvCharacterGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
             android:textColor="@color/black"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="4dp"
@@ -46,7 +43,6 @@
             android:id="@+id/tvHairColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Blonde"
             android:textColor="@color/black"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="4dp"
