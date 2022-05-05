@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sedaaggez.bobsburgers.R
 import com.sedaaggez.bobsburgers.adapter.CharacterAdapter
@@ -32,6 +33,11 @@ class CharactersFragment @Inject constructor(val characterAdapter: CharacterAdap
 
         binding.rvCharacters.adapter = characterAdapter
         binding.rvCharacters.layoutManager = LinearLayoutManager(requireContext())
+
+        characterAdapter.setOnItemClickListener {
+            val action = CharactersFragmentDirections.actionCharactersFragmentToCharacterDetailFragment(it.id)
+            findNavController().navigate(action)
+        }
 
         subscribeToObservers()
     }
