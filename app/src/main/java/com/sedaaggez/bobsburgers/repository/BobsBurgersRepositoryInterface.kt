@@ -5,4 +5,5 @@ import com.sedaaggez.bobsburgers.util.Resource
 
 interface BobsBurgersRepositoryInterface {
     suspend fun getCharacters(): Resource<List<Character>>
+    suspend fun getCharacter(id: Int): Resource<Character>
 }

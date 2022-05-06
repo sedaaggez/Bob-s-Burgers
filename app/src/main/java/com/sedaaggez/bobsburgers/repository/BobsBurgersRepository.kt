@@ -24,4 +24,20 @@ class BobsBurgersRepository @Inject constructor(
             Resource.error("No data!")
         }
     }
+
+    override suspend fun getCharacter(id: Int): Resource<Character> {
+        return try {
+            val response = retrofitApi.getCharacter(id)
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return@let Resource.success(it)
+                } ?: Resource.error("Error")
+            } else {
+                Resource.error("Error")
+            }
+
+        } catch (e: Exception) {
+            Resource.error("No data!")
+        }
+    }
 }
