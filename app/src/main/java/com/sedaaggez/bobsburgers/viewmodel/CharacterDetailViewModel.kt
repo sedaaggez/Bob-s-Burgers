@@ -7,9 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.sedaaggez.bobsburgers.model.Character
 import com.sedaaggez.bobsburgers.repository.BobsBurgersRepositoryInterface
 import com.sedaaggez.bobsburgers.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class CharacterDetailViewModel @Inject constructor(
     private val repository: BobsBurgersRepositoryInterface
 ) : ViewModel() {
