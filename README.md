@@ -24,3 +24,8 @@ In this application there is a list page of Bob's Burgers Series characters and 
 * Fragment Testing
 * RecyclerView Testing
 * Espresso and Mockito
+
+
+# License
+
+This project is licensed under the  GNU General Public License v3.0 License - see the [LICENSE](LICENSE) file for details.
